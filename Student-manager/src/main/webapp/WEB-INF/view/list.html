@@ -1,0 +1,28 @@
+<!doctype html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="/list-students"> Create new Student</a>
+<h1>List Studets</h1>
+<table border="1">
+    <tr>
+        <th>Fist name</th>
+        <th>Last name</th>
+    </tr>
+    <th:block th:each="student:${students}">
+        <tr>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td><a th:href="@{/edit-students/__${student.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-students/__${student.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
